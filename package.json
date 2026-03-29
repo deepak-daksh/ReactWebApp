@@ -1,0 +1,30 @@
+{
+  "name": "React App",
+  "version": "1.0.0",
+  "description": "build react a react application",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepak-daksh/ReactWebApp.git"
+  },
+  "keywords": [
+    "react",
+    "js",
+    "npm"
+  ],
+  "author": "Deepak Kumar Singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepak-daksh/ReactWebApp/issues"
+  },
+  "homepage": "https://github.com/deepak-daksh/ReactWebApp#readme",
+  "dependencies": {
+    "parcel": "^2.16.4",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  }
+}
