@@ -22,917 +22,911 @@ const Header = () => {
   );
 };
 
-const foodImg =
-  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/ekcrdo9r7vwgw6o9lhsz";
 
-  const RestorantCart = (props) => {
-    
-    const {name, cuisines,avgRatingString,sla:{slaString}} = props.resData;
-    // console.log(props);
+const RestorantCart = (props) => {
+  const {
+    cloudinaryImageId,
+    name,
+    cuisines,
+    avgRatingString,
+    sla: { slaString },
+  } = props.resData;
+
+const restroImgPath =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId;
+
+
   return (
     <div className="cart">
-      <img src={foodImg} />
+      <img src={restroImgPath} />
       <h4>{name}</h4>
       <h5>{cuisines.join(", ")}</h5>
       <p>
-        <span>Rating : {avgRatingString}</span> , {slaString} 
+        <span>Rating : {avgRatingString}</span> , {slaString}
       </p>
-      
     </div>
   );
 };
 
-
 const restroList = [
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.CollectionMasthead",
-                "collectionId": "83633",
-                "title": "North Indian",
-                "description": "Indulge with the best of North Indian cuisines.",
-                "imageId": "COLLECTIONS/IMAGES/MERCH/2025/1/24/820cca8e-ff06-4509-9855-2586384497f4_Northindian.png",
-                "aspectRatio": "3.44",
-                "cta": {
-                    "link": "swiggy://collectionV2?collection_id=83633&tags=layout_CCS_NorthIndian,north%20indian,layout_NorthIndian,ads_pc_north_indian",
-                    "type": "collectionv2"
-                },
-                "type": "COLLECTION_MASTHEAD_TYPE_IMAGE_WITH_TEXT",
-                "count": "474 restaurants",
-                "navBarConfig": {}
-            }
-        }
+  {
+    card: {
+      card: {
+        "@type":
+          "type.googleapis.com/swiggy.gandalf.widgets.v2.CollectionMasthead",
+        collectionId: "83633",
+        title: "North Indian",
+        description: "Indulge with the best of North Indian cuisines.",
+        imageId:
+          "COLLECTIONS/IMAGES/MERCH/2025/1/24/820cca8e-ff06-4509-9855-2586384497f4_Northindian.png",
+        aspectRatio: "3.44",
+        cta: {
+          link: "swiggy://collectionV2?collection_id=83633&tags=layout_CCS_NorthIndian,north%20indian,layout_NorthIndian,ads_pc_north_indian",
+          type: "collectionv2",
+        },
+        type: "COLLECTION_MASTHEAD_TYPE_IMAGE_WITH_TEXT",
+        count: "474 restaurants",
+        navBarConfig: {},
+      },
     },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.InlineViewFilterSortWidget",
-                "sortConfigs": [
-                    {
-                        "key": "relevance",
-                        "title": "Relevance (Default)",
-                        "selected": true,
-                        "defaultSelection": true
+  },
+  {
+    card: {
+      card: {
+        "@type":
+          "type.googleapis.com/swiggy.gandalf.widgets.v2.InlineViewFilterSortWidget",
+        sortConfigs: [
+          {
+            key: "relevance",
+            title: "Relevance (Default)",
+            selected: true,
+            defaultSelection: true,
+          },
+          {
+            key: "deliveryTimeAsc",
+            title: "Delivery Time",
+          },
+          {
+            key: "modelBasedRatingDesc",
+            title: "Rating",
+          },
+          {
+            key: "costForTwoAsc",
+            title: "Cost: Low to High",
+          },
+          {
+            key: "costForTwoDesc",
+            title: "Cost: High to Low",
+          },
+        ],
+        restaurantCount: 474,
+        facetList: [
+          {
+            label: "10 Mins Delivery",
+            id: "isRestaurantBolt",
+            selection: "SELECT_TYPE_SINGLESELECT",
+            facetInfo: [
+              {
+                label: "10 Mins Delivery",
+                id: "isRestaurantBoltfacetquery0",
+                analytics: {},
+                openFilter: true,
+              },
+            ],
+            viewType: "VIEW_TYPE_FLATTENED",
+            subLabel: "Filter by",
+            icon: "COLLECTIONS/IMAGES/MERCH/2024/12/18/4b2e8903-0e25-401b-8ede-088491b4cfa0_937977a3-b03b-4a9e-8b6a-24937664d1a9_pic.png",
+            selectedIcon:
+              "COLLECTIONS/IMAGES/MERCH/2024/12/26/3072d307-2f8e-471c-862d-d426fb93c0bf_4b2e8903-0e25-401b-8ede-088491b4cfa0_937977a3-b03b-4a9e-8b6a-24937664d1a9_pic.png",
+          },
+          {
+            label: "Veg/Non-Veg",
+            id: "isVeg",
+            selection: "SELECT_TYPE_MULTISELECT",
+            facetInfo: [
+              {
+                label: "Non Veg",
+                id: "isVegfacetquery0",
+                analytics: {},
+                openFilter: true,
+              },
+              {
+                label: "Pure Veg",
+                id: "isVegfacetquery1",
+                analytics: {},
+                openFilter: true,
+              },
+            ],
+            viewType: "VIEW_TYPE_HALF_CARD",
+            subLabel: "Filter by",
+            openFilter: true,
+          },
+          {
+            label: "Ratings",
+            id: "rating",
+            selection: "SELECT_TYPE_MULTISELECT",
+            facetInfo: [
+              {
+                label: "Ratings",
+                id: "ratingfacetquery0",
+                analytics: {},
+                openFilter: true,
+              },
+              {
+                label: "Ratings 4.0+",
+                id: "ratingfacetquery1",
+                analytics: {},
+                openFilter: true,
+              },
+              {
+                label: "Ratings 4.5+",
+                id: "ratingfacetquery2",
+                analytics: {},
+                openFilter: true,
+              },
+            ],
+            viewType: "VIEW_TYPE_HALF_CARD",
+            subLabel: "Filter by",
+            openFilter: true,
+          },
+          {
+            label: "Delivery Time",
+            id: "deliveryTime",
+            selection: "SELECT_TYPE_MULTISELECT",
+            facetInfo: [
+              {
+                label: "Less than 30 mins",
+                id: "deliveryTimefacetquery0",
+                analytics: {},
+                openFilter: true,
+              },
+              {
+                label: "Less than 45 mins",
+                id: "deliveryTimefacetquery1",
+                analytics: {},
+                openFilter: true,
+              },
+            ],
+            viewType: "VIEW_TYPE_HALF_CARD",
+            subLabel: "Filter by",
+            openFilter: true,
+          },
+          {
+            label: "Cost For Two",
+            id: "costForTwo",
+            selection: "SELECT_TYPE_MULTISELECT",
+            facetInfo: [
+              {
+                label: "Less than Rs. 300",
+                id: "costForTwofacetquery0",
+                analytics: {},
+                openFilter: true,
+              },
+              {
+                label: "Rs.300 - Rs.600",
+                id: "costForTwofacetquery1",
+                analytics: {},
+                openFilter: true,
+              },
+              {
+                label: "Greater than Rs. 600",
+                id: "costForTwofacetquery2",
+                analytics: {},
+                openFilter: true,
+              },
+            ],
+            viewType: "VIEW_TYPE_HALF_CARD",
+            subLabel: "Filter by",
+            openFilter: true,
+          },
+        ],
+        widgetId: "inlineFacetFilter",
+      },
+    },
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget",
+        layout: {
+          rows: 1,
+          widgetPadding: {
+            left: 16,
+            top: 12,
+            right: 16,
+          },
+          widgetTheme: {
+            defaultMode: {
+              backgroundColour: "#FFFFFF",
+              theme: "THEME_TYPE_LIGHT",
+            },
+            darkMode: {
+              backgroundColour: "#1B3028",
+              theme: "THEME_TYPE_DARK",
+            },
+          },
+        },
+        id: "restaurantCountWidget",
+        gridElements: {
+          infoWithStyle: {
+            "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.TextBoxV2",
+            text: "474 Restaurants to explore",
+            headerStyling: {
+              textSize: 15,
+              textColor: "text_color_highest_emphasis",
+              textFontName: "FONT_NAME_HEADER_H5",
+              maxLines: 1,
+            },
+          },
+        },
+      },
+    },
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+        info: {
+          id: "24811",
+          name: "Singla's Sweets, Bakery & Restaurant",
+          cloudinaryImageId: "2ba0ecc76a854c73dfd67be6b86ed0aa",
+          locality: "Patparganj",
+          areaName: "Patparganj",
+          costForTwo: "₹250 for two",
+          cuisines: [
+            "Sweets",
+            "North Indian",
+            "Chinese",
+            "South Indian",
+            "Italian",
+            "Bakery",
+          ],
+          avgRating: 4.5,
+          veg: true,
+          parentId: "474810",
+          avgRatingString: "4.5",
+          totalRatingsString: "123K+",
+          promoted: true,
+          adTrackingId:
+            "cid=bb64ff5a-5f89-4d39-a617-473e0a5bb00b~p=0~adgrpid=bb64ff5a-5f89-4d39-a617-473e0a5bb00b#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=24811~plpr=COLLECTION~eid=6ef7e11e-2eaf-41e3-8e81-b59b3c0ae22e~srvts=1775458311261~collid=83633",
+          sla: {
+            deliveryTime: 43,
+            lastMileTravel: 6,
+            serviceability: "SERVICEABLE",
+            slaString: "40-45 mins",
+            lastMileTravelString: "6.0 km",
+            iconType: "ICON_TYPE_EMPTY",
+          },
+          availability: {
+            nextCloseTime: "2026-04-07 00:00:00",
+            opened: true,
+          },
+          badges: {
+            imageBadges: [
+              {
+                imageId: "v1695133679/badges/Pure_Veg111.png",
+                description: "pureveg",
+              },
+            ],
+          },
+          isOpen: true,
+          type: "F",
+          badgesV2: {
+            entityBadges: {
+              textExtendedBadges: {},
+              textBased: {},
+              imageBased: {
+                badgeObject: [
+                  {
+                    attributes: {
+                      imageId: "v1695133679/badges/Pure_Veg111.png",
+                      description: "pureveg",
+                      theme: "light",
                     },
-                    {
-                        "key": "deliveryTimeAsc",
-                        "title": "Delivery Time"
-                    },
-                    {
-                        "key": "modelBasedRatingDesc",
-                        "title": "Rating"
-                    },
-                    {
-                        "key": "costForTwoAsc",
-                        "title": "Cost: Low to High"
-                    },
-                    {
-                        "key": "costForTwoDesc",
-                        "title": "Cost: High to Low"
-                    }
+                  },
                 ],
-                "restaurantCount": 474,
-                "facetList": [
-                    {
-                        "label": "10 Mins Delivery",
-                        "id": "isRestaurantBolt",
-                        "selection": "SELECT_TYPE_SINGLESELECT",
-                        "facetInfo": [
-                            {
-                                "label": "10 Mins Delivery",
-                                "id": "isRestaurantBoltfacetquery0",
-                                "analytics": {},
-                                "openFilter": true
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_FLATTENED",
-                        "subLabel": "Filter by",
-                        "icon": "COLLECTIONS/IMAGES/MERCH/2024/12/18/4b2e8903-0e25-401b-8ede-088491b4cfa0_937977a3-b03b-4a9e-8b6a-24937664d1a9_pic.png",
-                        "selectedIcon": "COLLECTIONS/IMAGES/MERCH/2024/12/26/3072d307-2f8e-471c-862d-d426fb93c0bf_4b2e8903-0e25-401b-8ede-088491b4cfa0_937977a3-b03b-4a9e-8b6a-24937664d1a9_pic.png"
+              },
+            },
+          },
+          aggregatedDiscountInfoV3: {
+            header: "50% OFF",
+            discountTag: "FLAT DEAL",
+            logoCtx: {
+              text: "BENEFITS",
+            },
+          },
+          orderabilityCommunication: {
+            title: {},
+            subTitle: {},
+            message: {},
+            customIcon: {},
+            commsStyling: {},
+          },
+          differentiatedUi: {
+            displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            differentiatedUiMediaDetails: {
+              mediaType: "ADS_MEDIA_ENUM_IMAGE",
+              lottie: {},
+              video: {},
+            },
+          },
+          reviewsSummary: {},
+          displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          restaurantOfferPresentationInfo: {},
+          externalRatings: {
+            aggregatedRating: {
+              rating: "4.0",
+              ratingCount: "10K+",
+            },
+            source: "GOOGLE",
+            sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+          },
+          ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+          campaignId: "bb64ff5a-5f89-4d39-a617-473e0a5bb00b",
+        },
+        analytics: {},
+        cta: {
+          link: "swiggy://menu?restaurant_id=24811&source=collection&query=North%20Indian",
+          text: "RESTAURANT_MENU",
+          type: "DEEPLINK",
+        },
+        widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food",
+      },
+      relevance: {
+        type: "RELEVANCE_TYPE_ON_MENU_RETURN",
+        sectionId: "MENU_RETURN_FOOD",
+      },
+    },
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+        info: {
+          id: "1308438",
+          name: "Big Bowl",
+          cloudinaryImageId:
+            "RX_THUMBNAIL/IMAGES/VENDOR/2026/1/12/d4dc9cb2-9991-48a9-a955-8d2fc1e2b38c_1308438.jpg",
+          locality: "Brodipet",
+          areaName: "Chand Central, Mayur Vihar-1",
+          costForTwo: "₹250 for two",
+          cuisines: ["Chinese", "Tibetan", "Desserts"],
+          avgRating: 4.2,
+          parentId: "434792",
+          avgRatingString: "4.2",
+          totalRatingsString: "13",
+          sla: {
+            deliveryTime: 31,
+            lastMileTravel: 3.9,
+            serviceability: "SERVICEABLE",
+            slaString: "30-35 mins",
+            lastMileTravelString: "3.9 km",
+            iconType: "ICON_TYPE_EMPTY",
+          },
+          availability: {
+            nextCloseTime: "2026-04-06 23:00:00",
+            opened: true,
+          },
+          badges: {},
+          isOpen: true,
+          type: "F",
+          badgesV2: {
+            entityBadges: {
+              imageBased: {},
+              textExtendedBadges: {},
+              textBased: {},
+            },
+          },
+          aggregatedDiscountInfoV3: {
+            header: "ITEMS",
+            subHeader: "AT ₹149",
+          },
+          orderabilityCommunication: {
+            title: {},
+            subTitle: {},
+            message: {},
+            customIcon: {},
+            commsStyling: {},
+          },
+          differentiatedUi: {
+            displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            differentiatedUiMediaDetails: {
+              mediaType: "ADS_MEDIA_ENUM_IMAGE",
+              lottie: {},
+              video: {},
+            },
+          },
+          reviewsSummary: {},
+          displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          isNewlyOnboarded: true,
+          restaurantOfferPresentationInfo: {},
+          externalRatings: {
+            aggregatedRating: {
+              rating: "--",
+            },
+          },
+          ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+        },
+        analytics: {},
+        cta: {
+          link: "swiggy://menu?restaurant_id=1308438&source=collection&query=North%20Indian",
+          text: "RESTAURANT_MENU",
+          type: "DEEPLINK",
+        },
+        widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food",
+      },
+      relevance: {
+        type: "RELEVANCE_TYPE_ON_MENU_RETURN",
+        sectionId: "MENU_RETURN_FOOD",
+      },
+    },
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+        info: {
+          id: "12772",
+          name: "Vaishno Amritsari Naan - Satish Dhaba",
+          cloudinaryImageId: "ekcrdo9r7vwgw6o9lhsz",
+          locality: "IP Extension",
+          areaName: "IP Extension",
+          costForTwo: "₹250 for two",
+          cuisines: ["North Indian", "Indian", "Thalis", "Punjabi"],
+          avgRating: 4.3,
+          veg: true,
+          parentId: "387871",
+          avgRatingString: "4.3",
+          totalRatingsString: "127K+",
+          promoted: true,
+          adTrackingId:
+            "cid=1b53d138-b779-4b26-b444-eb07f00795ad~p=1~adgrpid=1b53d138-b779-4b26-b444-eb07f00795ad#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=12772~plpr=COLLECTION~eid=aad81ced-b554-474b-9bac-a17223b625f9~srvts=1775458311261~collid=83633",
+          sla: {
+            deliveryTime: 28,
+            lastMileTravel: 4.5,
+            serviceability: "SERVICEABLE",
+            slaString: "25-30 mins",
+            lastMileTravelString: "4.5 km",
+            iconType: "ICON_TYPE_EMPTY",
+          },
+          availability: {
+            nextCloseTime: "2026-04-06 23:59:00",
+            opened: true,
+          },
+          badges: {
+            imageBadges: [
+              {
+                imageId: "v1695133679/badges/Pure_Veg111.png",
+                description: "pureveg",
+              },
+            ],
+          },
+          isOpen: true,
+          type: "F",
+          badgesV2: {
+            entityBadges: {
+              textBased: {},
+              imageBased: {
+                badgeObject: [
+                  {
+                    attributes: {
+                      description: "pureveg",
+                      theme: "light",
+                      imageId: "v1695133679/badges/Pure_Veg111.png",
                     },
-                    {
-                        "label": "Veg/Non-Veg",
-                        "id": "isVeg",
-                        "selection": "SELECT_TYPE_MULTISELECT",
-                        "facetInfo": [
-                            {
-                                "label": "Non Veg",
-                                "id": "isVegfacetquery0",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Pure Veg",
-                                "id": "isVegfacetquery1",
-                                "analytics": {},
-                                "openFilter": true
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_HALF_CARD",
-                        "subLabel": "Filter by",
-                        "openFilter": true
-                    },
-                    {
-                        "label": "Ratings",
-                        "id": "rating",
-                        "selection": "SELECT_TYPE_MULTISELECT",
-                        "facetInfo": [
-                            {
-                                "label": "Ratings",
-                                "id": "ratingfacetquery0",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Ratings 4.0+",
-                                "id": "ratingfacetquery1",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Ratings 4.5+",
-                                "id": "ratingfacetquery2",
-                                "analytics": {},
-                                "openFilter": true
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_HALF_CARD",
-                        "subLabel": "Filter by",
-                        "openFilter": true
-                    },
-                    {
-                        "label": "Delivery Time",
-                        "id": "deliveryTime",
-                        "selection": "SELECT_TYPE_MULTISELECT",
-                        "facetInfo": [
-                            {
-                                "label": "Less than 30 mins",
-                                "id": "deliveryTimefacetquery0",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Less than 45 mins",
-                                "id": "deliveryTimefacetquery1",
-                                "analytics": {},
-                                "openFilter": true
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_HALF_CARD",
-                        "subLabel": "Filter by",
-                        "openFilter": true
-                    },
-                    {
-                        "label": "Cost For Two",
-                        "id": "costForTwo",
-                        "selection": "SELECT_TYPE_MULTISELECT",
-                        "facetInfo": [
-                            {
-                                "label": "Less than Rs. 300",
-                                "id": "costForTwofacetquery0",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Rs.300 - Rs.600",
-                                "id": "costForTwofacetquery1",
-                                "analytics": {},
-                                "openFilter": true
-                            },
-                            {
-                                "label": "Greater than Rs. 600",
-                                "id": "costForTwofacetquery2",
-                                "analytics": {},
-                                "openFilter": true
-                            }
-                        ],
-                        "viewType": "VIEW_TYPE_HALF_CARD",
-                        "subLabel": "Filter by",
-                        "openFilter": true
-                    }
+                  },
                 ],
-                "widgetId": "inlineFacetFilter"
-            }
-        }
-    },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.GridWidget",
-                "layout": {
-                    "rows": 1,
-                    "widgetPadding": {
-                        "left": 16,
-                        "top": 12,
-                        "right": 16
-                    },
-                    "widgetTheme": {
-                        "defaultMode": {
-                            "backgroundColour": "#FFFFFF",
-                            "theme": "THEME_TYPE_LIGHT"
-                        },
-                        "darkMode": {
-                            "backgroundColour": "#1B3028",
-                            "theme": "THEME_TYPE_DARK"
-                        }
-                    }
-                },
-                "id": "restaurantCountWidget",
-                "gridElements": {
-                    "infoWithStyle": {
-                        "@type": "type.googleapis.com/swiggy.gandalf.widgets.v2.TextBoxV2",
-                        "text": "474 Restaurants to explore",
-                        "headerStyling": {
-                            "textSize": 15,
-                            "textColor": "text_color_highest_emphasis",
-                            "textFontName": "FONT_NAME_HEADER_H5",
-                            "maxLines": 1
-                        }
-                    }
-                }
-            }
-        }
-    },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                "info": {
-                    "id": "24811",
-                    "name": "Singla's Sweets, Bakery & Restaurant",
-                    "cloudinaryImageId": "2ba0ecc76a854c73dfd67be6b86ed0aa",
-                    "locality": "Patparganj",
-                    "areaName": "Patparganj",
-                    "costForTwo": "₹250 for two",
-                    "cuisines": [
-                        "Sweets",
-                        "North Indian",
-                        "Chinese",
-                        "South Indian",
-                        "Italian",
-                        "Bakery"
-                    ],
-                    "avgRating": 4.5,
-                    "veg": true,
-                    "parentId": "474810",
-                    "avgRatingString": "4.5",
-                    "totalRatingsString": "123K+",
-                    "promoted": true,
-                    "adTrackingId": "cid=bb64ff5a-5f89-4d39-a617-473e0a5bb00b~p=0~adgrpid=bb64ff5a-5f89-4d39-a617-473e0a5bb00b#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=24811~plpr=COLLECTION~eid=6ef7e11e-2eaf-41e3-8e81-b59b3c0ae22e~srvts=1775458311261~collid=83633",
-                    "sla": {
-                        "deliveryTime": 43,
-                        "lastMileTravel": 6,
-                        "serviceability": "SERVICEABLE",
-                        "slaString": "40-45 mins",
-                        "lastMileTravelString": "6.0 km",
-                        "iconType": "ICON_TYPE_EMPTY"
-                    },
-                    "availability": {
-                        "nextCloseTime": "2026-04-07 00:00:00",
-                        "opened": true
-                    },
-                    "badges": {
-                        "imageBadges": [
-                            {
-                                "imageId": "v1695133679/badges/Pure_Veg111.png",
-                                "description": "pureveg"
-                            }
-                        ]
-                    },
-                    "isOpen": true,
-                    "type": "F",
-                    "badgesV2": {
-                        "entityBadges": {
-                            "textExtendedBadges": {},
-                            "textBased": {},
-                            "imageBased": {
-                                "badgeObject": [
-                                    {
-                                        "attributes": {
-                                            "imageId": "v1695133679/badges/Pure_Veg111.png",
-                                            "description": "pureveg",
-                                            "theme": "light"
-                                        }
-                                    }
-                                ]
-                            }
-                        }
-                    },
-                    "aggregatedDiscountInfoV3": {
-                        "header": "50% OFF",
-                        "discountTag": "FLAT DEAL",
-                        "logoCtx": {
-                            "text": "BENEFITS"
-                        }
-                    },
-                    "orderabilityCommunication": {
-                        "title": {},
-                        "subTitle": {},
-                        "message": {},
-                        "customIcon": {},
-                        "commsStyling": {}
-                    },
-                    "differentiatedUi": {
-                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        "differentiatedUiMediaDetails": {
-                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                            "lottie": {},
-                            "video": {}
-                        }
-                    },
-                    "reviewsSummary": {},
-                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    "restaurantOfferPresentationInfo": {},
-                    "externalRatings": {
-                        "aggregatedRating": {
-                            "rating": "4.0",
-                            "ratingCount": "10K+"
-                        },
-                        "source": "GOOGLE",
-                        "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
-                    },
-                    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
-                    "campaignId": "bb64ff5a-5f89-4d39-a617-473e0a5bb00b"
-                },
-                "analytics": {},
-                "cta": {
-                    "link": "swiggy://menu?restaurant_id=24811&source=collection&query=North%20Indian",
-                    "text": "RESTAURANT_MENU",
-                    "type": "DEEPLINK"
-                },
-                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+              },
+              textExtendedBadges: {},
             },
-            "relevance": {
-                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
-                "sectionId": "MENU_RETURN_FOOD"
-            }
-        }
-    },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                "info": {
-                    "id": "1308438",
-                    "name": "Big Bowl",
-                    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2026/1/12/d4dc9cb2-9991-48a9-a955-8d2fc1e2b38c_1308438.jpg",
-                    "locality": "Brodipet",
-                    "areaName": "Chand Central, Mayur Vihar-1",
-                    "costForTwo": "₹250 for two",
-                    "cuisines": [
-                        "Chinese",
-                        "Tibetan",
-                        "Desserts"
-                    ],
-                    "avgRating": 4.2,
-                    "parentId": "434792",
-                    "avgRatingString": "4.2",
-                    "totalRatingsString": "13",
-                    "sla": {
-                        "deliveryTime": 31,
-                        "lastMileTravel": 3.9,
-                        "serviceability": "SERVICEABLE",
-                        "slaString": "30-35 mins",
-                        "lastMileTravelString": "3.9 km",
-                        "iconType": "ICON_TYPE_EMPTY"
-                    },
-                    "availability": {
-                        "nextCloseTime": "2026-04-06 23:00:00",
-                        "opened": true
-                    },
-                    "badges": {},
-                    "isOpen": true,
-                    "type": "F",
-                    "badgesV2": {
-                        "entityBadges": {
-                            "imageBased": {},
-                            "textExtendedBadges": {},
-                            "textBased": {}
-                        }
-                    },
-                    "aggregatedDiscountInfoV3": {
-                        "header": "ITEMS",
-                        "subHeader": "AT ₹149"
-                    },
-                    "orderabilityCommunication": {
-                        "title": {},
-                        "subTitle": {},
-                        "message": {},
-                        "customIcon": {},
-                        "commsStyling": {}
-                    },
-                    "differentiatedUi": {
-                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        "differentiatedUiMediaDetails": {
-                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                            "lottie": {},
-                            "video": {}
-                        }
-                    },
-                    "reviewsSummary": {},
-                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    "isNewlyOnboarded": true,
-                    "restaurantOfferPresentationInfo": {},
-                    "externalRatings": {
-                        "aggregatedRating": {
-                            "rating": "--"
-                        }
-                    },
-                    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                },
-                "analytics": {},
-                "cta": {
-                    "link": "swiggy://menu?restaurant_id=1308438&source=collection&query=North%20Indian",
-                    "text": "RESTAURANT_MENU",
-                    "type": "DEEPLINK"
-                },
-                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+          },
+          aggregatedDiscountInfoV3: {
+            header: "₹75 OFF",
+            subHeader: "ABOVE ₹199",
+            discountTag: "FLAT DEAL",
+          },
+          orderabilityCommunication: {
+            title: {},
+            subTitle: {},
+            message: {},
+            customIcon: {},
+            commsStyling: {},
+          },
+          differentiatedUi: {
+            displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            differentiatedUiMediaDetails: {
+              mediaType: "ADS_MEDIA_ENUM_IMAGE",
+              lottie: {},
+              video: {},
             },
-            "relevance": {
-                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
-                "sectionId": "MENU_RETURN_FOOD"
-            }
-        }
-    },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                "info": {
-                    "id": "12772",
-                    "name": "Vaishno Amritsari Naan - Satish Dhaba",
-                    "cloudinaryImageId": "ekcrdo9r7vwgw6o9lhsz",
-                    "locality": "IP Extension",
-                    "areaName": "IP Extension",
-                    "costForTwo": "₹250 for two",
-                    "cuisines": [
-                        "North Indian",
-                        "Indian",
-                        "Thalis",
-                        "Punjabi"
-                    ],
-                    "avgRating": 4.3,
-                    "veg": true,
-                    "parentId": "387871",
-                    "avgRatingString": "4.3",
-                    "totalRatingsString": "127K+",
-                    "promoted": true,
-                    "adTrackingId": "cid=1b53d138-b779-4b26-b444-eb07f00795ad~p=1~adgrpid=1b53d138-b779-4b26-b444-eb07f00795ad#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=12772~plpr=COLLECTION~eid=aad81ced-b554-474b-9bac-a17223b625f9~srvts=1775458311261~collid=83633",
-                    "sla": {
-                        "deliveryTime": 28,
-                        "lastMileTravel": 4.5,
-                        "serviceability": "SERVICEABLE",
-                        "slaString": "25-30 mins",
-                        "lastMileTravelString": "4.5 km",
-                        "iconType": "ICON_TYPE_EMPTY"
-                    },
-                    "availability": {
-                        "nextCloseTime": "2026-04-06 23:59:00",
-                        "opened": true
-                    },
-                    "badges": {
-                        "imageBadges": [
-                            {
-                                "imageId": "v1695133679/badges/Pure_Veg111.png",
-                                "description": "pureveg"
-                            }
-                        ]
-                    },
-                    "isOpen": true,
-                    "type": "F",
-                    "badgesV2": {
-                        "entityBadges": {
-                            "textBased": {},
-                            "imageBased": {
-                                "badgeObject": [
-                                    {
-                                        "attributes": {
-                                            "description": "pureveg",
-                                            "theme": "light",
-                                            "imageId": "v1695133679/badges/Pure_Veg111.png"
-                                        }
-                                    }
-                                ]
-                            },
-                            "textExtendedBadges": {}
-                        }
-                    },
-                    "aggregatedDiscountInfoV3": {
-                        "header": "₹75 OFF",
-                        "subHeader": "ABOVE ₹199",
-                        "discountTag": "FLAT DEAL"
-                    },
-                    "orderabilityCommunication": {
-                        "title": {},
-                        "subTitle": {},
-                        "message": {},
-                        "customIcon": {},
-                        "commsStyling": {}
-                    },
-                    "differentiatedUi": {
-                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        "differentiatedUiMediaDetails": {
-                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                            "lottie": {},
-                            "video": {}
-                        }
-                    },
-                    "reviewsSummary": {},
-                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    "restaurantOfferPresentationInfo": {},
-                    "externalRatings": {
-                        "aggregatedRating": {
-                            "rating": "3.9",
-                            "ratingCount": "2.4K+"
-                        },
-                        "source": "GOOGLE",
-                        "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
-                    },
-                    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
-                    "campaignId": "1b53d138-b779-4b26-b444-eb07f00795ad"
-                },
-                "analytics": {},
-                "cta": {
-                    "link": "swiggy://menu?restaurant_id=12772&source=collection&query=North%20Indian",
-                    "text": "RESTAURANT_MENU",
-                    "type": "DEEPLINK"
-                },
-                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+          },
+          reviewsSummary: {},
+          displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          restaurantOfferPresentationInfo: {},
+          externalRatings: {
+            aggregatedRating: {
+              rating: "3.9",
+              ratingCount: "2.4K+",
             },
-            "relevance": {
-                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
-                "sectionId": "MENU_RETURN_FOOD"
-            }
-        }
+            source: "GOOGLE",
+            sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+          },
+          ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+          campaignId: "1b53d138-b779-4b26-b444-eb07f00795ad",
+        },
+        analytics: {},
+        cta: {
+          link: "swiggy://menu?restaurant_id=12772&source=collection&query=North%20Indian",
+          text: "RESTAURANT_MENU",
+          type: "DEEPLINK",
+        },
+        widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food",
+      },
+      relevance: {
+        type: "RELEVANCE_TYPE_ON_MENU_RETURN",
+        sectionId: "MENU_RETURN_FOOD",
+      },
     },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                "info": {
-                    "id": "591303",
-                    "name": "Dum Safar Biryani",
-                    "cloudinaryImageId": "xfrukzybbbalygk4chfe",
-                    "locality": "Hotel Savoy Suites",
-                    "areaName": "Sector 16",
-                    "costForTwo": "₹500 for two",
-                    "cuisines": [
-                        "Biryani",
-                        "Hyderabadi",
-                        "Kebabs",
-                        "North Indian",
-                        "barbeque"
-                    ],
-                    "avgRating": 4.4,
-                    "parentId": "351013",
-                    "avgRatingString": "4.4",
-                    "totalRatingsString": "2.3K+",
-                    "sla": {
-                        "deliveryTime": 32,
-                        "lastMileTravel": 4.3,
-                        "serviceability": "SERVICEABLE",
-                        "slaString": "30-35 mins",
-                        "lastMileTravelString": "4.3 km",
-                        "iconType": "ICON_TYPE_EMPTY"
-                    },
-                    "availability": {
-                        "nextCloseTime": "2026-04-06 16:00:00",
-                        "opened": true
-                    },
-                    "badges": {},
-                    "isOpen": true,
-                    "type": "F",
-                    "badgesV2": {
-                        "entityBadges": {
-                            "textBased": {},
-                            "imageBased": {},
-                            "textExtendedBadges": {}
-                        }
-                    },
-                    "aggregatedDiscountInfoV3": {
-                        "header": "ITEMS",
-                        "subHeader": "AT ₹99"
-                    },
-                    "orderabilityCommunication": {
-                        "title": {},
-                        "subTitle": {},
-                        "message": {},
-                        "customIcon": {},
-                        "commsStyling": {}
-                    },
-                    "differentiatedUi": {
-                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        "differentiatedUiMediaDetails": {
-                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                            "lottie": {},
-                            "video": {}
-                        }
-                    },
-                    "reviewsSummary": {},
-                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    "restaurantOfferPresentationInfo": {},
-                    "externalRatings": {
-                        "aggregatedRating": {
-                            "rating": "--"
-                        }
-                    },
-                    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                },
-                "analytics": {},
-                "cta": {
-                    "link": "swiggy://menu?restaurant_id=591303&source=collection&query=North%20Indian",
-                    "text": "RESTAURANT_MENU",
-                    "type": "DEEPLINK"
-                },
-                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+        info: {
+          id: "591303",
+          name: "Dum Safar Biryani",
+          cloudinaryImageId: "xfrukzybbbalygk4chfe",
+          locality: "Hotel Savoy Suites",
+          areaName: "Sector 16",
+          costForTwo: "₹500 for two",
+          cuisines: [
+            "Biryani",
+            "Hyderabadi",
+            "Kebabs",
+            "North Indian",
+            "barbeque",
+          ],
+          avgRating: 4.4,
+          parentId: "351013",
+          avgRatingString: "4.4",
+          totalRatingsString: "2.3K+",
+          sla: {
+            deliveryTime: 32,
+            lastMileTravel: 4.3,
+            serviceability: "SERVICEABLE",
+            slaString: "30-35 mins",
+            lastMileTravelString: "4.3 km",
+            iconType: "ICON_TYPE_EMPTY",
+          },
+          availability: {
+            nextCloseTime: "2026-04-06 16:00:00",
+            opened: true,
+          },
+          badges: {},
+          isOpen: true,
+          type: "F",
+          badgesV2: {
+            entityBadges: {
+              textBased: {},
+              imageBased: {},
+              textExtendedBadges: {},
             },
-            "relevance": {
-                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
-                "sectionId": "MENU_RETURN_FOOD"
-            }
-        }
+          },
+          aggregatedDiscountInfoV3: {
+            header: "ITEMS",
+            subHeader: "AT ₹99",
+          },
+          orderabilityCommunication: {
+            title: {},
+            subTitle: {},
+            message: {},
+            customIcon: {},
+            commsStyling: {},
+          },
+          differentiatedUi: {
+            displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            differentiatedUiMediaDetails: {
+              mediaType: "ADS_MEDIA_ENUM_IMAGE",
+              lottie: {},
+              video: {},
+            },
+          },
+          reviewsSummary: {},
+          displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          restaurantOfferPresentationInfo: {},
+          externalRatings: {
+            aggregatedRating: {
+              rating: "--",
+            },
+          },
+          ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+        },
+        analytics: {},
+        cta: {
+          link: "swiggy://menu?restaurant_id=591303&source=collection&query=North%20Indian",
+          text: "RESTAURANT_MENU",
+          type: "DEEPLINK",
+        },
+        widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food",
+      },
+      relevance: {
+        type: "RELEVANCE_TYPE_ON_MENU_RETURN",
+        sectionId: "MENU_RETURN_FOOD",
+      },
     },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                "info": {
-                    "id": "422957",
-                    "name": "Bhatia Sweets",
-                    "cloudinaryImageId": "yt24vs3ghl4xdge1uxde",
-                    "locality": "IP Extension",
-                    "areaName": "IP Extension",
-                    "costForTwo": "₹500 for two",
-                    "cuisines": [
-                        "Sweets",
-                        "Snacks",
-                        "Desserts"
-                    ],
-                    "avgRating": 4.6,
-                    "veg": true,
-                    "parentId": "235317",
-                    "avgRatingString": "4.6",
-                    "totalRatingsString": "3.8K+",
-                    "promoted": true,
-                    "adTrackingId": "cid=98d28831-ee3e-4d8b-a9fb-9682f823de88~p=2~adgrpid=98d28831-ee3e-4d8b-a9fb-9682f823de88#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=422957~plpr=COLLECTION~eid=57ea06e0-61ee-4332-acf9-eb6d4bb40f13~srvts=1775458311261~collid=83633",
-                    "sla": {
-                        "deliveryTime": 23,
-                        "lastMileTravel": 5,
-                        "serviceability": "SERVICEABLE",
-                        "slaString": "20-25 mins",
-                        "lastMileTravelString": "5.0 km",
-                        "iconType": "ICON_TYPE_EMPTY"
-                    },
-                    "availability": {
-                        "nextCloseTime": "2026-04-06 23:00:00",
-                        "opened": true
-                    },
-                    "badges": {},
-                    "isOpen": true,
-                    "aggregatedDiscountInfoV2": {},
-                    "type": "F",
-                    "badgesV2": {
-                        "entityBadges": {
-                            "textBased": {},
-                            "imageBased": {},
-                            "textExtendedBadges": {}
-                        }
-                    },
-                    "orderabilityCommunication": {
-                        "title": {},
-                        "subTitle": {},
-                        "message": {},
-                        "customIcon": {},
-                        "commsStyling": {}
-                    },
-                    "differentiatedUi": {
-                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        "differentiatedUiMediaDetails": {
-                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                            "lottie": {},
-                            "video": {}
-                        }
-                    },
-                    "reviewsSummary": {},
-                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    "restaurantOfferPresentationInfo": {},
-                    "externalRatings": {
-                        "aggregatedRating": {
-                            "rating": "3.6",
-                            "ratingCount": "430"
-                        },
-                        "source": "GOOGLE",
-                        "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
-                    },
-                    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
-                    "campaignId": "98d28831-ee3e-4d8b-a9fb-9682f823de88"
-                },
-                "analytics": {},
-                "cta": {
-                    "link": "swiggy://menu?restaurant_id=422957&source=collection&query=North%20Indian",
-                    "text": "RESTAURANT_MENU",
-                    "type": "DEEPLINK"
-                },
-                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+        info: {
+          id: "422957",
+          name: "Bhatia Sweets",
+          cloudinaryImageId: "yt24vs3ghl4xdge1uxde",
+          locality: "IP Extension",
+          areaName: "IP Extension",
+          costForTwo: "₹500 for two",
+          cuisines: ["Sweets", "Snacks", "Desserts"],
+          avgRating: 4.6,
+          veg: true,
+          parentId: "235317",
+          avgRatingString: "4.6",
+          totalRatingsString: "3.8K+",
+          promoted: true,
+          adTrackingId:
+            "cid=98d28831-ee3e-4d8b-a9fb-9682f823de88~p=2~adgrpid=98d28831-ee3e-4d8b-a9fb-9682f823de88#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=422957~plpr=COLLECTION~eid=57ea06e0-61ee-4332-acf9-eb6d4bb40f13~srvts=1775458311261~collid=83633",
+          sla: {
+            deliveryTime: 23,
+            lastMileTravel: 5,
+            serviceability: "SERVICEABLE",
+            slaString: "20-25 mins",
+            lastMileTravelString: "5.0 km",
+            iconType: "ICON_TYPE_EMPTY",
+          },
+          availability: {
+            nextCloseTime: "2026-04-06 23:00:00",
+            opened: true,
+          },
+          badges: {},
+          isOpen: true,
+          aggregatedDiscountInfoV2: {},
+          type: "F",
+          badgesV2: {
+            entityBadges: {
+              textBased: {},
+              imageBased: {},
+              textExtendedBadges: {},
             },
-            "relevance": {
-                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
-                "sectionId": "MENU_RETURN_FOOD"
-            }
-        }
+          },
+          orderabilityCommunication: {
+            title: {},
+            subTitle: {},
+            message: {},
+            customIcon: {},
+            commsStyling: {},
+          },
+          differentiatedUi: {
+            displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            differentiatedUiMediaDetails: {
+              mediaType: "ADS_MEDIA_ENUM_IMAGE",
+              lottie: {},
+              video: {},
+            },
+          },
+          reviewsSummary: {},
+          displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          restaurantOfferPresentationInfo: {},
+          externalRatings: {
+            aggregatedRating: {
+              rating: "3.6",
+              ratingCount: "430",
+            },
+            source: "GOOGLE",
+            sourceIconImageId: "v1704440323/google_ratings/rating_google_tag",
+          },
+          ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+          campaignId: "98d28831-ee3e-4d8b-a9fb-9682f823de88",
+        },
+        analytics: {},
+        cta: {
+          link: "swiggy://menu?restaurant_id=422957&source=collection&query=North%20Indian",
+          text: "RESTAURANT_MENU",
+          type: "DEEPLINK",
+        },
+        widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food",
+      },
+      relevance: {
+        type: "RELEVANCE_TYPE_ON_MENU_RETURN",
+        sectionId: "MENU_RETURN_FOOD",
+      },
     },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                "info": {
-                    "id": "1178897",
-                    "name": "Charcoal Eats - Biryani & Beyond",
-                    "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2025/10/27/c66f1714-96b5-4012-b595-f14d9c645597_1178897.jpg",
-                    "locality": "Sector 18",
-                    "areaName": "Sector 18",
-                    "costForTwo": "₹600 for two",
-                    "cuisines": [
-                        "Biryani",
-                        "Rolls & Wraps",
-                        "North Indian"
-                    ],
-                    "avgRating": 4.2,
-                    "parentId": "5338",
-                    "avgRatingString": "4.2",
-                    "totalRatingsString": "199",
-                    "sla": {
-                        "deliveryTime": 13,
-                        "lastMileTravel": 0.6,
-                        "serviceability": "SERVICEABLE",
-                        "slaString": "10-15 mins",
-                        "lastMileTravelString": "0.6 km",
-                        "iconType": "ICON_TYPE_EMPTY"
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+        info: {
+          id: "1178897",
+          name: "Charcoal Eats - Biryani & Beyond",
+          cloudinaryImageId:
+            "RX_THUMBNAIL/IMAGES/VENDOR/2025/10/27/c66f1714-96b5-4012-b595-f14d9c645597_1178897.jpg",
+          locality: "Sector 18",
+          areaName: "Sector 18",
+          costForTwo: "₹600 for two",
+          cuisines: ["Biryani", "Rolls & Wraps", "North Indian"],
+          avgRating: 4.2,
+          parentId: "5338",
+          avgRatingString: "4.2",
+          totalRatingsString: "199",
+          sla: {
+            deliveryTime: 13,
+            lastMileTravel: 0.6,
+            serviceability: "SERVICEABLE",
+            slaString: "10-15 mins",
+            lastMileTravelString: "0.6 km",
+            iconType: "ICON_TYPE_EMPTY",
+          },
+          availability: {
+            nextCloseTime: "2026-04-07 04:00:00",
+            opened: true,
+          },
+          badges: {
+            imageBadges: [
+              {
+                imageId: "android/static-assets/icons/big_rx.png",
+                description: "bolt!",
+              },
+            ],
+          },
+          isOpen: true,
+          type: "F",
+          badgesV2: {
+            entityBadges: {
+              textBased: {},
+              imageBased: {
+                badgeObject: [
+                  {
+                    attributes: {
+                      imageId: "android/static-assets/icons/big_rx.png",
+                      description: "bolt!",
                     },
-                    "availability": {
-                        "nextCloseTime": "2026-04-07 04:00:00",
-                        "opened": true
-                    },
-                    "badges": {
-                        "imageBadges": [
-                            {
-                                "imageId": "android/static-assets/icons/big_rx.png",
-                                "description": "bolt!"
-                            }
-                        ]
-                    },
-                    "isOpen": true,
-                    "type": "F",
-                    "badgesV2": {
-                        "entityBadges": {
-                            "textBased": {},
-                            "imageBased": {
-                                "badgeObject": [
-                                    {
-                                        "attributes": {
-                                            "imageId": "android/static-assets/icons/big_rx.png",
-                                            "description": "bolt!"
-                                        }
-                                    }
-                                ]
-                            },
-                            "textExtendedBadges": {}
-                        }
-                    },
-                    "aggregatedDiscountInfoV3": {
-                        "header": "50% OFF",
-                        "discountTag": "FLAT DEAL",
-                        "logoCtx": {
-                            "text": "BENEFITS"
-                        }
-                    },
-                    "orderabilityCommunication": {
-                        "title": {},
-                        "subTitle": {},
-                        "message": {},
-                        "customIcon": {},
-                        "commsStyling": {}
-                    },
-                    "differentiatedUi": {
-                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        "differentiatedUiMediaDetails": {
-                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                            "lottie": {},
-                            "video": {}
-                        }
-                    },
-                    "reviewsSummary": {},
-                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    "restaurantOfferPresentationInfo": {},
-                    "externalRatings": {
-                        "aggregatedRating": {
-                            "rating": "--"
-                        }
-                    },
-                    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
-                },
-                "analytics": {},
-                "cta": {
-                    "link": "swiggy://menu?restaurant_id=1178897&source=collection&query=North%20Indian",
-                    "text": "RESTAURANT_MENU",
-                    "type": "DEEPLINK"
-                },
-                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+                  },
+                ],
+              },
+              textExtendedBadges: {},
             },
-            "relevance": {
-                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
-                "sectionId": "MENU_RETURN_FOOD"
-            }
-        }
+          },
+          aggregatedDiscountInfoV3: {
+            header: "50% OFF",
+            discountTag: "FLAT DEAL",
+            logoCtx: {
+              text: "BENEFITS",
+            },
+          },
+          orderabilityCommunication: {
+            title: {},
+            subTitle: {},
+            message: {},
+            customIcon: {},
+            commsStyling: {},
+          },
+          differentiatedUi: {
+            displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            differentiatedUiMediaDetails: {
+              mediaType: "ADS_MEDIA_ENUM_IMAGE",
+              lottie: {},
+              video: {},
+            },
+          },
+          reviewsSummary: {},
+          displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          restaurantOfferPresentationInfo: {},
+          externalRatings: {
+            aggregatedRating: {
+              rating: "--",
+            },
+          },
+          ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+        },
+        analytics: {},
+        cta: {
+          link: "swiggy://menu?restaurant_id=1178897&source=collection&query=North%20Indian",
+          text: "RESTAURANT_MENU",
+          type: "DEEPLINK",
+        },
+        widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food",
+      },
+      relevance: {
+        type: "RELEVANCE_TYPE_ON_MENU_RETURN",
+        sectionId: "MENU_RETURN_FOOD",
+      },
     },
-    {
-        "card": {
-            "card": {
-                "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
-                "info": {
-                    "id": "623102",
-                    "name": "Khadak Singh Da Dhaba",
-                    "cloudinaryImageId": "8144bf37947c161953f656308d1bfc30",
-                    "locality": "Pandav Nagar",
-                    "areaName": "Mayur Vihar Phase 1",
-                    "costForTwo": "₹300 for two",
-                    "cuisines": [
-                        "North Indian",
-                        "Biryani",
-                        "Chinese"
-                    ],
-                    "avgRating": 4.1,
-                    "parentId": "13170",
-                    "avgRatingString": "4.1",
-                    "totalRatingsString": "4.1K+",
-                    "promoted": true,
-                    "adTrackingId": "cid=ecd6d47a-1fe1-4083-9f02-117dc0aaff7d~p=3~adgrpid=ecd6d47a-1fe1-4083-9f02-117dc0aaff7d#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=623102~plpr=COLLECTION~eid=cb586517-806e-47e3-b9b7-e9e18b1d3d6d~srvts=1775458311261~collid=83633",
-                    "sla": {
-                        "deliveryTime": 36,
-                        "lastMileTravel": 4.9,
-                        "serviceability": "SERVICEABLE",
-                        "slaString": "35-40 mins",
-                        "lastMileTravelString": "4.9 km",
-                        "iconType": "ICON_TYPE_EMPTY"
-                    },
-                    "availability": {
-                        "nextCloseTime": "2026-04-06 23:45:00",
-                        "opened": true
-                    },
-                    "badges": {},
-                    "isOpen": true,
-                    "type": "F",
-                    "badgesV2": {
-                        "entityBadges": {
-                            "textBased": {},
-                            "imageBased": {},
-                            "textExtendedBadges": {}
-                        }
-                    },
-                    "aggregatedDiscountInfoV3": {
-                        "header": "50% OFF",
-                        "discountTag": "FLAT DEAL"
-                    },
-                    "orderabilityCommunication": {
-                        "title": {},
-                        "subTitle": {},
-                        "message": {},
-                        "customIcon": {},
-                        "commsStyling": {}
-                    },
-                    "differentiatedUi": {
-                        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
-                        "differentiatedUiMediaDetails": {
-                            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
-                            "lottie": {},
-                            "video": {}
-                        }
-                    },
-                    "reviewsSummary": {},
-                    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
-                    "restaurantOfferPresentationInfo": {},
-                    "externalRatings": {
-                        "aggregatedRating": {
-                            "rating": "--"
-                        }
-                    },
-                    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
-                    "campaignId": "ecd6d47a-1fe1-4083-9f02-117dc0aaff7d"
-                },
-                "analytics": {},
-                "cta": {
-                    "link": "swiggy://menu?restaurant_id=623102&source=collection&query=North%20Indian",
-                    "text": "RESTAURANT_MENU",
-                    "type": "DEEPLINK"
-                },
-                "widgetId": "collectionV5RestaurantListWidget_SimRestoRelevance_food"
+  },
+  {
+    card: {
+      card: {
+        "@type": "type.googleapis.com/swiggy.presentation.food.v2.Restaurant",
+        info: {
+          id: "623102",
+          name: "Khadak Singh Da Dhaba",
+          cloudinaryImageId: "8144bf37947c161953f656308d1bfc30",
+          locality: "Pandav Nagar",
+          areaName: "Mayur Vihar Phase 1",
+          costForTwo: "₹300 for two",
+          cuisines: ["North Indian", "Biryani", "Chinese"],
+          avgRating: 4.1,
+          parentId: "13170",
+          avgRatingString: "4.1",
+          totalRatingsString: "4.1K+",
+          promoted: true,
+          adTrackingId:
+            "cid=ecd6d47a-1fe1-4083-9f02-117dc0aaff7d~p=3~adgrpid=ecd6d47a-1fe1-4083-9f02-117dc0aaff7d#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=623102~plpr=COLLECTION~eid=cb586517-806e-47e3-b9b7-e9e18b1d3d6d~srvts=1775458311261~collid=83633",
+          sla: {
+            deliveryTime: 36,
+            lastMileTravel: 4.9,
+            serviceability: "SERVICEABLE",
+            slaString: "35-40 mins",
+            lastMileTravelString: "4.9 km",
+            iconType: "ICON_TYPE_EMPTY",
+          },
+          availability: {
+            nextCloseTime: "2026-04-06 23:45:00",
+            opened: true,
+          },
+          badges: {},
+          isOpen: true,
+          type: "F",
+          badgesV2: {
+            entityBadges: {
+              textBased: {},
+              imageBased: {},
+              textExtendedBadges: {},
             },
-            "relevance": {
-                "type": "RELEVANCE_TYPE_ON_MENU_RETURN",
-                "sectionId": "MENU_RETURN_FOOD"
-            }
-        }
-    }
+          },
+          aggregatedDiscountInfoV3: {
+            header: "50% OFF",
+            discountTag: "FLAT DEAL",
+          },
+          orderabilityCommunication: {
+            title: {},
+            subTitle: {},
+            message: {},
+            customIcon: {},
+            commsStyling: {},
+          },
+          differentiatedUi: {
+            displayType: "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            differentiatedUiMediaDetails: {
+              mediaType: "ADS_MEDIA_ENUM_IMAGE",
+              lottie: {},
+              video: {},
+            },
+          },
+          reviewsSummary: {},
+          displayType: "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+          restaurantOfferPresentationInfo: {},
+          externalRatings: {
+            aggregatedRating: {
+              rating: "--",
+            },
+          },
+          ratingsDisplayPreference: "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY",
+          campaignId: "ecd6d47a-1fe1-4083-9f02-117dc0aaff7d",
+        },
+        analytics: {},
+        cta: {
+          link: "swiggy://menu?restaurant_id=623102&source=collection&query=North%20Indian",
+          text: "RESTAURANT_MENU",
+          type: "DEEPLINK",
+        },
+        widgetId: "collectionV5RestaurantListWidget_SimRestoRelevance_food",
+      },
+      relevance: {
+        type: "RELEVANCE_TYPE_ON_MENU_RETURN",
+        sectionId: "MENU_RETURN_FOOD",
+      },
+    },
+  },
 ];
 
 const MainContainer = () => {
@@ -940,10 +934,20 @@ const MainContainer = () => {
     <div className="main-container">
       <div className="search-area">Search</div>
       <div className="cart-area">
-        <RestorantCart resData={restroList[3]?.card?.card?.info}
+        {restroList
+          .filter((items) => items?.card?.card?.info)
+          .map((items) => {
+            return (
+              <RestorantCart
+                resData={items?.card?.card?.info || {}}
+                key={items?.card?.card?.info?.id}
+              />
+            );
+          })}
+        {/* <RestorantCart resData={restroList[3]?.card?.card?.info}
         />
         <RestorantCart resData={restroList[4]?.card?.card?.info}
-        />
+        /> */}
       </div>
     </div>
   );
