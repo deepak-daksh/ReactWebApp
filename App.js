@@ -38,7 +38,9 @@ const restroImgPath =
 
   return (
     <div className="cart">
-      <img src={restroImgPath} />
+        <div className="cart-img">
+            <img src={restroImgPath} alt={name}/>
+        </div>
       <h4>{name}</h4>
       <h5>{cuisines.join(", ")}</h5>
       <p>
